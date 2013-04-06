@@ -1,5 +1,5 @@
 {
-  "name": "yes",
+  "name": "github-url-from-git",
   "version": "0.0.1",
   "description": "Parse a github git url and return the github repo url",
   "main": "index.js",
