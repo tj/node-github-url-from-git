@@ -1,0 +1,18 @@
+{
+  "name": "yes",
+  "version": "0.0.1",
+  "description": "Parse a github git url and return the github repo url",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "github",
+    "git",
+    "url",
+    "parser"
+  ],
+  "author": "",
+  "license": "MIT"
+}
