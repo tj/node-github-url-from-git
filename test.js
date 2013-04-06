@@ -1,5 +1,6 @@
 
 var parse = require('./');
+var assert = require('better-assert');
 
 describe('parse(url)', function(){
   it('should support git://*', function(){
@@ -20,5 +21,10 @@ describe('parse(url)', function(){
   it('should support https://*.git', function(){
     var url = 'https://jpillora@github.com/banchee/tranquil.git';
     parse(url).should.equal('https://github.com/banchee/tranquil');
+  })
+
+  it('should return undefined on failure', function(){
+    var url = 'git://github.com/justgord/.git';
+    assert(null == parse(url));
   })
 })
