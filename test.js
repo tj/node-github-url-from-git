@@ -27,4 +27,14 @@ describe('parse(url)', function(){
     var url = 'git://github.com/justgord/.git';
     assert(null == parse(url));
   })
+
+  it('should parse git@gist urls', function() {
+    var url = 'git@gist.github.com:3135914.git';
+    parse(url).should.equal('https://gist.github.com/3135914')
+  })
+
+  it('should parse https://gist urls', function() {
+    var url = 'https://gist.github.com/3135914.git';
+    parse(url).should.equal('https://gist.github.com/3135914')
+  })
 })
