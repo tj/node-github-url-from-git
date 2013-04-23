@@ -15,7 +15,7 @@
   ],
   "author": "",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "better-assert": "~1.0.0",
     "mocha": "~1.9.0",
     "should": "~1.2.2"
