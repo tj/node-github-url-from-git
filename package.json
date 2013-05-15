@@ -6,7 +6,10 @@
   "scripts": {
     "test": "mocha test.js --reporter spec --require should"
   },
-  "repository": "",
+  "repository": {
+    "type":"git",
+    "url":"http://github.com/visionmedia/node-github-url-from-git"
+  },
   "keywords": [
     "github",
     "git",
