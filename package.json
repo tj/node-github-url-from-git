@@ -9,7 +9,7 @@
   "repository": {
     "type":"git",
     "url":"http://github.com/visionmedia/node-github-url-from-git"
-  }
+  },
   "keywords": [
     "github",
     "git",
