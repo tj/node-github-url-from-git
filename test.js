@@ -38,19 +38,19 @@ describe('parse(url)', function(){
     parse(url).should.equal('https://gist.github.com/3135914')
   })
 
+  // Handle arbitrary GitHub Enterprise domains.
+
   it('should parse parse extra GHE urls provided', function() {
     var url = 'git://github.example.com/treygriffith/cellar.git';
-    var opts = {
-      extraBaseUrls: ['github.example.com']
-    };
-    parse(url, opts).should.equal('https://github.example.com/treygriffith/cellar');
+    parse(
+      url, {extraBaseUrls: ['github.example.com']}
+    ).should.equal('https://github.example.com/treygriffith/cellar');
   });
 
   it('should parse GHE urls with multiple subdomains', function() {
     var url = 'git://github.internal.example.com/treygriffith/cellar.git';
-    var opts = {
-      extraBaseUrls: ['github.internal.example.com']
-    };
-    parse(url, opts).should.equal('https://github.internal.example.com/treygriffith/cellar');
+    parse(
+      url, {extraBaseUrls: ['github.internal.example.com']}
+    ).should.equal('https://github.internal.example.com/treygriffith/cellar');
   });
 })
