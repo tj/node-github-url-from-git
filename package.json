@@ -16,7 +16,7 @@
     "url",
     "parser"
   ],
-  "author": "",
+  "author": "TJ Holowaychuk",
   "license": "MIT",
   "devDependencies": {
     "better-assert": "~1.0.0",
