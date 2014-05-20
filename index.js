@@ -1,4 +1,4 @@
-var re = /^(?:https?:\/\/|git:\/\/)?(?:[^@]+@)?(gist.github.com|github.com)[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/
+var re = /^(?:https?:\/\/|git:\/\/)?(?:[^@]+@)?([\w]*\.?[\w]*\.[\w]*)[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/
 
 module.exports = function(url){
   try {
