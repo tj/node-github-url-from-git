@@ -53,4 +53,9 @@ describe('parse(url)', function(){
       url, {extraBaseUrls: ['github.internal.example.com']}
     ).should.equal('https://github.internal.example.com/treygriffith/cellar');
   });
+
+  it('should parse urls with multiple subdomains', function() {
+    var url = 'git://github.internal.example.com/treygriffith/cellar.git';
+    parse(url).should.equal('https://github.internal.example.com/treygriffith/cellar');
+  });
 })
