@@ -1,6 +1,8 @@
 var re = /^(?:https?:\/\/|git:\/\/)?(?:[^@]+@)?([\w]*\.?[\w]*\.[\w]*)[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/
 
-module.exports = function(url){
+module.exports = githubUrlFromGit
+
+function githubUrlFromGit(url){
   try {
     var m = re.exec(url.replace(/\.git$/, ''));
     var host = m[1];
@@ -10,3 +12,5 @@ module.exports = function(url){
     // ignore
   }
 };
+
+githubUrlFromGit.re = re;
