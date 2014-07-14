@@ -47,4 +47,9 @@ describe('parse(url)', function(){
     var url = 'git://example.com/treygriffith/cellar.git';
     parse(url).should.equal('https://example.com/treygriffith/cellar');
   });
+
+  it('should parse urls with multiple subdomains', function() {
+    var url = 'git://github.internal.example.com/treygriffith/cellar.git';
+    parse(url).should.equal('https://github.internal.example.com/treygriffith/cellar');
+  });
 })
