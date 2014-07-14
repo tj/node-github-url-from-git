@@ -4,9 +4,9 @@ module.exports = function(url, gheUrls){
     var githubUrls = ['gist.github.com', 'github.com'].concat(gheUrls || []);
     // build regex from whitelist.
     var githubRe = new RegExp(
-      '^(?:https?:\\/\\/|git:\\/\\/)?(?:[^@]+@)?(' +
-      githubUrls.join('|') +
-      ')[:\\/]([^\\/]+\\/[^\\/]+?|[0-9]+)$'
+      /^(?:https?:\/\/|git:\/\/)?(?:[^@]+@)?/.source +
+      '(' + githubUrls.join('|') + ')' +
+      /[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/.source
     )
     var m = githubRe.exec(url.replace(/\.git$/, ''));
     var host = m[1];
