@@ -38,18 +38,17 @@ describe('parse(url)', function(){
     parse(url).should.equal('https://gist.github.com/3135914')
   })
 
-  it('should parse urls from a domain other than github.com', function() {
+  it('should parse parse extra GHE urls provided', function() {
     var url = 'git://github.example.com/treygriffith/cellar.git';
-    parse(url).should.equal('https://github.example.com/treygriffith/cellar');
+    parse(
+      url, ['github.example.com']
+    ).should.equal('https://github.example.com/treygriffith/cellar');
   });
 
-  it('should parse urls without a subdomain', function() {
-    var url = 'git://example.com/treygriffith/cellar.git';
-    parse(url).should.equal('https://example.com/treygriffith/cellar');
-  });
-
-  it('should parse urls with multiple subdomains', function() {
+  it('should parse GHE urls with multiple subdomains', function() {
     var url = 'git://github.internal.example.com/treygriffith/cellar.git';
-    parse(url).should.equal('https://github.internal.example.com/treygriffith/cellar');
+    parse(
+      url, ['github.internal.example.com']
+    ).should.equal('https://github.internal.example.com/treygriffith/cellar');
   });
 })
