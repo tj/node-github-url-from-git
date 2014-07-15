@@ -1,4 +1,3 @@
-
 var parse = require('./');
 var assert = require('better-assert');
 
@@ -28,6 +27,8 @@ describe('parse(url)', function(){
     assert(null == parse(url));
   })
 
+  // gist urls.
+
   it('should parse git@gist urls', function() {
     var url = 'git@gist.github.com:3135914.git';
     parse(url).should.equal('https://gist.github.com/3135914')
@@ -38,13 +39,27 @@ describe('parse(url)', function(){
     parse(url).should.equal('https://gist.github.com/3135914')
   })
 
-  it('should parse urls from a domain other than github.com', function() {
+  // Handle arbitrary GitHub Enterprise domains.
+
+  it('should parse parse extra GHE urls provided', function() {
     var url = 'git://github.example.com/treygriffith/cellar.git';
-    parse(url).should.equal('https://github.example.com/treygriffith/cellar');
+    parse(
+      url, {extraBaseUrls: ['github.example.com']}
+    ).should.equal('https://github.example.com/treygriffith/cellar');
   });
 
-  it('should parse urls without a subdomain', function() {
-    var url = 'git://example.com/treygriffith/cellar.git';
-    parse(url).should.equal('https://example.com/treygriffith/cellar');
+  it('should parse GHE urls with multiple subdomains', function() {
+    var url = 'git://github.internal.example.com/treygriffith/cellar.git';
+    parse(
+      url, {extraBaseUrls: ['github.internal.example.com']}
+    ).should.equal('https://github.internal.example.com/treygriffith/cellar');
+  });
+})
+
+describe('re', function() {
+  it('should expose GitHub url parsing regex', function() {
+    parse.re.source.should.equal(
+      /^(?:https?:\/\/|git:\/\/)?(?:[^@]+@)?(gist.github.com|github.com)[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/.source
+    )
   });
 })
