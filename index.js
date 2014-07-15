@@ -1,11 +1,14 @@
-module.exports = function(url, gheUrls){
+module.exports = function(url, opts){
+
+  opts = opts || {}; 
+
   try {
     // whitelist of URLs that should be treated as GitHub repos.
-    var githubUrls = ['gist.github.com', 'github.com'].concat(gheUrls || []);
+    var baseUrls = ['gist.github.com', 'github.com'].concat(opts.extraBaseUrls || []);
     // build regex from whitelist.
     var githubRe = new RegExp(
       /^(?:https?:\/\/|git:\/\/)?(?:[^@]+@)?/.source +
-      '(' + githubUrls.join('|') + ')' +
+      '(' + baseUrls.join('|') + ')' +
       /[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/.source
     )
     var m = githubRe.exec(url.replace(/\.git$/, ''));

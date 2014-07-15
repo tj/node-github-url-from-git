@@ -40,15 +40,17 @@ describe('parse(url)', function(){
 
   it('should parse parse extra GHE urls provided', function() {
     var url = 'git://github.example.com/treygriffith/cellar.git';
-    parse(
-      url, ['github.example.com']
-    ).should.equal('https://github.example.com/treygriffith/cellar');
+    var opts = {
+      extraBaseUrls: ['github.example.com']
+    };
+    parse(url, opts).should.equal('https://github.example.com/treygriffith/cellar');
   });
 
   it('should parse GHE urls with multiple subdomains', function() {
     var url = 'git://github.internal.example.com/treygriffith/cellar.git';
-    parse(
-      url, ['github.internal.example.com']
-    ).should.equal('https://github.internal.example.com/treygriffith/cellar');
+    var opts = {
+      extraBaseUrls: ['github.internal.example.com']
+    };
+    parse(url, opts).should.equal('https://github.internal.example.com/treygriffith/cellar');
   });
 })
