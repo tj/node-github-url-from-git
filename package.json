@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/visionmedia/node-github-url-from-git"
+    "url": "https://github.com/visionmedia/node-github-url-from-git.git"
   },
   "keywords": [
     "github",
