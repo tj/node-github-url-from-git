@@ -1,6 +1,6 @@
 {
   "name": "github-url-from-git",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Parse a github git url and return the github repo url",
   "main": "index.js",
   "scripts": {
