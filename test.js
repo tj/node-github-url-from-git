@@ -32,6 +32,11 @@ describe('parse(url)', function(){
     parse(url).should.eql('https://github.com/bcoe/thumbd');
   })
 
+  it('should parse git@github.com:/bcoe/thumbd.git', function() {
+    var url = 'git@github.com:/bcoe/thumbd.git';
+    parse(url).should.eql('https://github.com/bcoe/thumbd');
+  });
+
   it('should parse git@github.com:bcoe/thumbd.git#2.7.0', function() {
     var url = 'git@github.com:bcoe/thumbd.git#2.7.0';
     parse(url).should.eql('https://github.com/bcoe/thumbd');
@@ -84,7 +89,7 @@ describe('parse(url)', function(){
 describe('re', function() {
   it('should expose GitHub url parsing regex', function() {
     parse.re.source.should.equal(
-      /^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?(gist.github.com|github.com)[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/.source
+      /^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?(gist.github.com|github.com)[:\/]\/?([^\/]+\/[^\/]+?|[0-9]+)$/.source
     )
   });
 })
