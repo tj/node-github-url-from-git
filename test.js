@@ -89,7 +89,7 @@ describe('parse(url)', function(){
 describe('re', function() {
   it('should expose GitHub url parsing regex', function() {
     parse.re.source.should.equal(
-      /^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?(gist.github.com|github.com)[:\/]\/?([^\/]+\/[^\/]+?|[0-9]+)$/.source
+      /^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?(gist.github.com|github.com)(?::\/?|\/)([^\/]+\/[^\/]+?|[0-9]+)$/.source
     )
   });
 })
