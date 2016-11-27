@@ -23,7 +23,7 @@ function re(opts) {
   return new RegExp(
     /^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?/.source +
     '(' + baseUrls.join('|') + ')' +
-    /[:\/]([^\/]+\/[^\/]+?|[0-9]+)$/.source
+    /(?::\/?|\/)([^\/]+\/[^\/]+?|[0-9]+)$/.source
   );
 }
 
