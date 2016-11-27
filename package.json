@@ -4,7 +4,8 @@
   "description": "Parse a github git url and return the github repo url",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js --reporter spec --require should"
+    "pretest": "standard",
+    "test": "nyc mocha test.js --reporter spec --require should"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,10 @@
   "author": "TJ Holowaychuk",
   "license": "MIT",
   "devDependencies": {
-    "better-assert": "~1.0.0",
-    "mocha": "~1.9.0",
-    "should": "~1.2.2",
+    "better-assert": "^1.0.2",
+    "mocha": "^3.2.0",
+    "nyc": "^10.0.0",
+    "should": "^11.1.1",
     "standard": "^8.6.0",
     "standard-version": "^3.0.0"
   }
