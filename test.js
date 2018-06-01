@@ -70,6 +70,13 @@ describe('parse(url)', function () {
     var url = 'https://gist.github.com/3135914.git'
     parse(url).should.equal('https://gist.github.com/3135914')
   })
+  
+  // www urls
+  
+  it('should parse https://www urls', function () {
+    var url = 'https://www.github.com/a/b.git'
+    parse(url).should.equal('https://github.com/a/b')
+  })
 
   // Handle arbitrary GitHub Enterprise domains.
 
