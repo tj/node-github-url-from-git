@@ -18,7 +18,7 @@ function githubUrlFromGit (url, opts) {
 function re (opts) {
   opts = opts || {}
   // whitelist of URLs that should be treated as GitHub repos.
-  var baseUrls = ['gist.github.com', 'github.com'].concat(opts.extraBaseUrls || [])
+  var baseUrls = ['gist.github.com', 'github.com', 'www.github.com'].concat(opts.extraBaseUrls || [])
   // build regex from whitelist.
   return new RegExp(
     /^(?:https?:\/\/|git:\/\/|git\+ssh:\/\/|git\+https:\/\/)?(?:[^@]+@)?/.source +
